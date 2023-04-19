@@ -1,0 +1,42 @@
+_target_: src.models.cat_model.CatModel
+
+net:
+  _target_: src.models.components.LKUNet.LKUNet
+  in_channel: 12
+  n_classes: 3
+  start_channel: 8
+  LK_size: 5
+
+warper:
+    _target_: src.models.components.SpatialWarp.SpatialWarp
+    image_type: "image"
+#    mod: 1.0
+
+val_warper:
+    _target_: src.models.components.SpatialWarp.SpatialWarp
+    image_type: "image"
+#    mod: 1.0
+
+loss:
+    _target_: src.models.components.Loss.CatLoss
+    image_loss: "mse"
+    incompress_form: "abslog" # "abslog", "abslog_diffeo", "minus1", "reciprocal"
+    incompress_abs: "l1" # "l1" or "l2"
+    w_in: 0.4
+    w_sm: 0.008
+    ncc_win: 9
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.0003
+  weight_decay: 0.00001
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.5
+  patience: 5
+
+

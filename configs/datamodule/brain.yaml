@@ -1,0 +1,11 @@
+_target_: src.datamodules.brain_datamodule.BrainDataModule
+data_dir: ${paths.data_dir}
+batch_size: 1
+train_val_test_split: [0.9,0.05,0.05] # update torch to 1.13 so that [0.6,0.2,0.2] can be directly used in torch.utils.random_split function
+num_workers: 6
+pin_memory: False
+portion: 1.0
+max_gap: 99
+sincos_form: true
+test_json: null
+# train_json: null

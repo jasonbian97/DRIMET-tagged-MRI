@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - datamodule: pvira.yaml # choose datamodule with `test_dataloader()` for evaluation
+  - model: cat.yaml
+  - logger: null
+  - trainer: default.yaml
+  - paths: default.yaml
+  - extras: default.yaml
+  - hydra: default.yaml
+
+task_name: "eval"
+
+tags: ["dev"]
+
+# passing checkpoint path is necessary for evaluation
+ckpt_path: ???
+model:
+  name: ??? # <cat,catjmag>_<lku,vm>_<01,02,...>

@@ -1,0 +1,13 @@
+_target_: src.datamodules.pvira_datamodule.PVIRADataModule
+data_dir: ${paths.data_dir}
+Nframes: 2
+batch_size: 1
+train_val_test_split: [0.6,0.2,0.2] # update torch to 1.13 so that [0.6,0.2,0.2] can be directly used in torch.utils.random_split function
+num_workers: 6
+pin_memory: False
+portion: 1.0
+max_gap: 8
+sincos_form: true
+test_json: null
+train_json: "/munge/pvira_results_info.json"
+isCache: true
