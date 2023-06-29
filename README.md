@@ -5,7 +5,7 @@ Tagged-MRI with Application to the Tongue
 
 Paper link: https://arxiv.org/pdf/2301.07234.pdf
 
-Key facts of LKU-Net:
+Key facts of DRIMET:
 
 - Deep learning-powered phase-based tagged-MRI tracking
 - Estimate 3D dense _incompressible_ motion
